@@ -52,6 +52,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'consultor_climatico_site.urls'
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+# Para onde o usuário será enviado após fazer login.
+LOGOUT_REDIRECT_URL = '/login/'
+# Para onde o usuário será enviado ao sair.
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
