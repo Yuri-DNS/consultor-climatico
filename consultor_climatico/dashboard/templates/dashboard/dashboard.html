@@ -5,9 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-{% block content %}
-<h2>Bem-vindo ao Consultor Climático!</h2>
-<p>Aqui você verá suas cidades salvas e previsões do tempo.</p>
-{% endblock %}
+<h2>Previsão do Tempo</h2>
+
+{% if weather_data %}
+    <ul>
+        {% for cidade in weather_data %}
+            <li>
+                <h3>{{ cidade.cidade }}</h3>
+                <p>Temperatura: {{ cidade.temperatura }}°C</p>
+                <p>Condição: {{ cidade.descricao }}</p>
+                <img src="{{ cidade.icone }}" alt="Ícone do clima">
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Você ainda não adicionou cidades.</p>
+{% endif %}
 </body>
 </html>

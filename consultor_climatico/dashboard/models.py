@@ -13,3 +13,17 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class WeatherConfig(models.Model):
+    api_key = models.CharField(
+        max_length=255,
+        help_text="Enter your OpenWeatherMap API key here"
+    )
+
+    class Meta:
+        verbose_name = "Weather Configuration"
+        verbose_name_plural = "Weather Configurations"
+
+    def __str__(self):
+        return self.api_key

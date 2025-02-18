@@ -5,4 +5,4 @@ class DashboardConfig(AppConfig):
     name = 'dashboard'
 
     def ready(self):
-        import dashboard.signals  # Importa os signals ao iniciar o app
+        import dashboard.signals  # Importa os sinais ao iniciar a aplicação
