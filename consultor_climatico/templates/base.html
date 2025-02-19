@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Consultor Climático{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Você pode incluir links para CSS aqui, como Bootstrap ou seu CSS customizado -->
+    <style>
+        /* Estilos básicos para a navbar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #343a40;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'registrar' %}">Registrar</a></li>
+            <li><a href="{% url 'logout' %}">Sair</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        {% block content %}
+        <!-- Conteúdo específico de cada página será inserido aqui -->
+        {% endblock %}
+    </div>
+
+</body>
+</html>

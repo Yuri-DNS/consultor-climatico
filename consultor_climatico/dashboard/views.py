@@ -32,19 +32,19 @@ def logar(request):
 
 @login_required
 def dashboard(request):
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)  # Evita erro se o perfil não existir
-
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     cidades = user_profile.cidades.all()
+
     weather_data = []
 
     for cidade in cidades:
-        data = get_weather(cidade.nome)
-        if data:
+        weather_info = get_weather(cidade.nome)
+        if weather_info:
             weather_data.append({
-                "cidade": cidade.nome,
-                "temperatura": data["main"]["temp"],
-                "descricao": data["weather"][0]["description"].capitalize(),
-                "icone": f"http://openweathermap.org/img/wn/{data['weather'][0]['icon']}.png"
+                'cidade': cidade.nome,
+                'temperatura': weather_info['main']['temp'],
+                'descricao': weather_info['weather'][0]['description'],
+                'icone': weather_info['weather'][0]['icon'],
             })
 
-    return render(request, "dashboard/dashboard.html", {"weather_data": weather_data})
+    return render(request, 'dashboard/dashboard.html', {'weather_data': weather_data})

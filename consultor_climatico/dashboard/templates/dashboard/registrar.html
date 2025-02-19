@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 {% block content %}
 <h2>Registrar</h2>
 <form method="post">
@@ -14,5 +8,3 @@
 </form>
 <a href="{% url 'login' %}">Já tem uma conta? Faça login</a>
 {% endblock %}
-</body>
-</html>
